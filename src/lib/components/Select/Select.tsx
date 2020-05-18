@@ -13,7 +13,7 @@ import c from 'classnames';
 import {makeStyles} from '@material-ui/styles';
 
 import {FormControl} from '../FormControl';
-import {ReactComponent as ArrowDownSvg} from './arrow-down.svg';
+import {ArrowDownSvg} from './ArrowDownSvg';
 
 import {isOptionWithValue} from './utils';
 
