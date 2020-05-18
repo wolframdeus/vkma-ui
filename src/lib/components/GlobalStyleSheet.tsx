@@ -1,9 +1,9 @@
 import {memo} from 'react';
 
 import {makeStyles} from '@material-ui/styles';
-import {Theme} from '../types';
-
 import {useDevice} from './DeviceProvider';
+
+import {Theme} from './ThemeProvider';
 
 const useStyles = makeStyles((theme: Theme) => {
   const {text, backgroundColor} = theme.global;

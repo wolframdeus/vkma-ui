@@ -47,3 +47,21 @@ export interface ButtonProps
    */
   size?: 'm' | 'l' | 'xl';
 }
+
+export interface ButtonColors {
+  background: string;
+  foreground: string;
+  border: string;
+  ripple: string;
+}
+
+export interface ButtonVariant {
+  colors: ButtonColors;
+}
+
+export interface ButtonTheme {
+  primary: ButtonVariant;
+  secondary: ButtonVariant;
+  tertiary: ButtonVariant;
+  outline: ButtonVariant;
+}

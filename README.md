@@ -17,6 +17,18 @@ or
 npm i vkma-ui
 ```
 
+## Components
+- Button
+- ConfigProvider
+- DeviceProvider
+- FormControl
+- Input
+- Link
+- Select
+- Separator
+- ThemeProvider
+- GlobalStyleSheet
+
 ## Notice for developers
 
 **Requesting contribution!** Currently transferring components from 

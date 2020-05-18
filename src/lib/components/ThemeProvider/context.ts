@@ -1,9 +1,7 @@
 import {createContext, useContext} from 'react';
+import {createBrightLightTheme} from '../../themes';
 
-import {ThemeContext} from './types';
-import {Theme} from '../../types';
-
-import {createBrightLightTheme} from '../../themes/bright-light';
+import {Theme, ThemeContext} from './types';
 
 export const themeContext = createContext<ThemeContext>({
   theme: createBrightLightTheme,

@@ -1,7 +1,13 @@
-import {buttonBrightLightTheme} from './button';
-import {getFontFamily} from '../../utils';
-
-import {ThemeCreator} from '../../types';
+import {getFontFamily} from '../utils';
+import {
+  ThemeCreator,
+  buttonBrightLightTheme,
+  formControlBrightLightTheme,
+  inputBrightLightTheme,
+  linkBrightLightTheme,
+  selectBrightLightTheme,
+  separatorBrightLightTheme,
+} from '../components';
 
 /**
  * Creates bright light theme
@@ -11,6 +17,11 @@ import {ThemeCreator} from '../../types';
 export const createBrightLightTheme: ThemeCreator = options => ({
   components: {
     Button: buttonBrightLightTheme,
+    FormControl: formControlBrightLightTheme,
+    Input: inputBrightLightTheme,
+    Link: linkBrightLightTheme,
+    Select: selectBrightLightTheme,
+    Separator: separatorBrightLightTheme,
   },
   global: {
     backgroundColor: 'white',

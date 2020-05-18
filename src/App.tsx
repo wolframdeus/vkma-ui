@@ -3,23 +3,26 @@ import React, {memo, useMemo, useState} from 'react';
 import {
   GlobalStyleSheet,
   DeviceProvider,
+  ConfigProvider,
+  Link,
   Button,
   ThemeProviderConnected,
+  Select,
   createBrightLightTheme,
+  createSpaceGrayTheme,
 } from './lib';
 
 import {SchemeType, ThemesMap} from './types';
-import {ConfigProvider} from './lib/components/ConfigProvider';
 
 export const App = memo(() => {
-  const [scheme, setScheme] = useState<SchemeType>('client_light');
+  const [scheme] = useState<SchemeType>('client_dark');
 
   const themes = useMemo<ThemesMap>(() => ({
     client_light: createBrightLightTheme,
     bright_light: createBrightLightTheme,
-    client_dark: createBrightLightTheme,
-    space_gray: createBrightLightTheme,
-    cosmic: createBrightLightTheme,
+    client_dark: createSpaceGrayTheme,
+    space_gray: createSpaceGrayTheme,
+    cosmic: createSpaceGrayTheme,
   }), []);
   const theme = useMemo(() => themes[scheme], [scheme, themes]);
 
@@ -28,8 +31,21 @@ export const App = memo(() => {
       <DeviceProvider automaticUpdate={true}>
         <ThemeProviderConnected theme={theme}>
           <GlobalStyleSheet/>
-          <Button onClick={() => setScheme('client_light')}>Light</Button>
-          <Button onClick={() => setScheme('client_dark')}>Dark</Button>
+          <div>
+            <Button variant={'primary'}>Button</Button>
+          </div>
+          <div>
+            <Button variant={'secondary'}>Button</Button>
+          </div>
+          <div>
+            <Link href={'https://m.vk.com'}>Link</Link>
+          </div>
+          <div>
+            <Select placeholder={'Select option'}>
+              <option>option 1</option>
+              <option>option 2</option>
+            </Select>
+          </div>
         </ThemeProviderConnected>
       </DeviceProvider>
     </ConfigProvider>

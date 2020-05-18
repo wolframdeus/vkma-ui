@@ -2,27 +2,26 @@ import React, {memo, useCallback, useEffect, useRef, useState} from 'react';
 import c from 'classnames';
 
 import {makeStyles} from '@material-ui/styles';
-import {Theme} from '../../types';
 
 import {useDevice} from '../DeviceProvider';
 import {BUTTON_RIPPLE_DURATION, BUTTON_TRANSPARENT_DURATION} from './constants';
 
+import {Theme} from '../ThemeProvider';
 import {OS} from '../../types';
 import {ButtonProps, Point, Ripple} from './types';
 
 const useStyles = makeStyles<Theme, ButtonProps>(theme => ({
   root: ({variant = 'primary'}) => {
-    const {
-      colors: {borderColor, backgroundColor, foregroundColor},
-    } = theme.components.Button[variant];
+    const {colors} = theme.components.Button[variant];
+    const {border, background, foreground} = colors;
 
     return {
       appearance: 'none',
       alignItems: 'center',
       borderRadius: 10,
-      border: `1px solid ${borderColor}`,
-      backgroundColor,
-      color: foregroundColor,
+      border: `1px solid ${border}`,
+      background: background,
+      color: foreground,
       display: 'inline-flex',
       justifyContent: 'center',
       padding: '0 16px',
@@ -95,7 +94,7 @@ const useStyles = makeStyles<Theme, ButtonProps>(theme => ({
     animation: `$ripple-active ${BUTTON_RIPPLE_DURATION}ms`,
     borderRadius: '50%',
     backgroundColor: ({variant = 'primary'}) => {
-      return theme.components.Button[variant].colors.rippleColor;
+      return theme.components.Button[variant].colors.ripple;
     },
     pointerEvents: 'none',
   },
