@@ -1,6 +1,5 @@
 import {ButtonHTMLAttributes, ReactNode} from 'react';
 import {StyledComponentProps} from '@material-ui/styles';
-import {OS} from '../../types';
 
 export type ButtonVariantType = 'primary' | 'secondary' | 'tertiary'
   | 'outline';

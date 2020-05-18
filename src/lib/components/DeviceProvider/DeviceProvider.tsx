@@ -2,11 +2,10 @@ import React, {memo, useEffect, useMemo, useState} from 'react';
 
 import {deviceContext} from './context';
 import {getInsets, getOS} from './utils';
-
 import vkBridge, {VKBridgeSubscribeHandler} from '@vkontakte/vk-bridge';
+import {shallowEqual} from '../../utils';
 
 import {DeviceContext, DeviceProviderProps} from './types';
-import {shallowEqual} from '../../utils/misc';
 
 const {Provider} = deviceContext;
 
@@ -41,11 +40,8 @@ export const DeviceProvider = memo(
       if (automaticUpdate) {
         const listener: VKBridgeSubscribeHandler = event => {
           if (
-            event.detail
-            && (
-              event.detail.type === 'VKWebAppUpdateConfig' ||
-              event.detail.type === 'VKWebAppUpdateInsets'
-            )
+            event.detail?.type === 'VKWebAppUpdateConfig' ||
+            event.detail?.type === 'VKWebAppUpdateInsets'
           ) {
             const {data} = event.detail;
 

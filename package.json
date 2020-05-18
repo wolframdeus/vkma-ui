@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "gulp",
-    "test": "tsc --noEmit",
+    "test": "tsc -p tsconfig-build.json --noEmit",
     "prepare": "install-peers",
     "lint": "eslint src/**/*.{ts,tsx}",
     "validate": "npm-run-all lint test",
