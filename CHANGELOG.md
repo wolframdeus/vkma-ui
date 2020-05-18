@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/wolframdeus/vkma-ui/compare/v1.1.0...v1.2.0) (2020-05-18)
+
+
+### Features
+
+* **components:** created new components ([157dc26](https://github.com/wolframdeus/vkma-ui/commit/157dc26439effdceb60f0d62cbec349994439746))
+
+
+### Bug Fixes
+
+* **select:** fixed Select arrow svg import ([acd0756](https://github.com/wolframdeus/vkma-ui/commit/acd0756bd030c5bf61440649fdf79744adf93662))
+
 ## [1.1.0](https://github.com/wolframdeus/vkma-ui/compare/v1.0.4...v1.1.0) (2020-05-18)
 
 
