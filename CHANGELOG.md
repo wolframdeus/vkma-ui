@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/wolframdeus/vkma-ui/compare/v1.0.4...v1.1.0) (2020-05-18)
+
+
+### Features
+
+* **configprovider:** added config provder with its utils ([8a508e1](https://github.com/wolframdeus/vkma-ui/commit/8a508e1fa7b54a420b0ab25d8e7306f96a5b8c2f))
+
 ### [1.0.4](https://github.com/wolframdeus/vkma-ui/compare/v1.0.3...v1.0.4) (2020-05-18)
 
 
