@@ -5,13 +5,12 @@ import {makeStyles} from '@material-ui/styles';
 import {Theme} from '../../types';
 
 import {useDevice} from '../DeviceProvider';
-import {getFontFamily} from '../../utils';
 import {BUTTON_RIPPLE_DURATION, BUTTON_TRANSPARENT_DURATION} from './constants';
 
 import {OS} from '../../types';
-import {ButtonProps, ButtonUseStylesProps, Point, Ripple} from './types';
+import {ButtonProps, Point, Ripple} from './types';
 
-const useStyles = makeStyles<Theme, ButtonUseStylesProps>(theme => ({
+const useStyles = makeStyles<Theme, ButtonProps>(theme => ({
   root: ({variant = 'primary'}) => {
     const {
       colors: {borderColor, backgroundColor, foregroundColor},
@@ -62,7 +61,7 @@ const useStyles = makeStyles<Theme, ButtonUseStylesProps>(theme => ({
   content: {
     position: 'relative',
     zIndex: 1,
-    fontFamily: ({os}) => getFontFamily(os),
+    fontFamily: theme.global.text.fontFamily,
     fontWeight: 500,
   },
   contentM: {
@@ -117,7 +116,7 @@ export const Button = memo(function Button(props: ButtonProps) {
     ...rest
   } = props;
   const {os} = useDevice();
-  const mc = useStyles({...props, os});
+  const mc = useStyles(props);
   const [isActive, setIsActive] = useState(false);
   const transparentTimeoutRef = useRef<number | null>(null);
 

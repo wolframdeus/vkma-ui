@@ -3,7 +3,6 @@ import React, {memo, useMemo} from 'react';
 import {ThemeProvider as MuiThemeProvider} from '@material-ui/styles';
 
 import {themeContext} from './context';
-import {useDevice} from '../DeviceProvider';
 
 import {ThemeContext, ThemeProviderProps} from './types';
 
@@ -15,8 +14,7 @@ const {Provider} = themeContext;
  */
 export const ThemeProvider = memo(
   function ThemeProvider(props: ThemeProviderProps) {
-    const {children, theme: themeOrCreator} = props;
-    const {os} = useDevice();
+    const {children, theme: themeOrCreator, os} = props;
 
     const theme = useMemo(() => {
       // If values is theme creator, call it to get theme

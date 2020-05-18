@@ -1,5 +1,5 @@
 import {ReactNode, ReactNodeArray} from 'react';
-import {ThemeType} from '../../types';
+import {OS, ThemeType} from '../../types';
 
 /**
  * Theme provider props
@@ -14,7 +14,14 @@ export interface ThemeProviderProps {
    * Current theme
    */
   theme: ThemeType;
+
+  /**
+   * Operating system
+   */
+  os: OS;
 }
+
+export type ThemeProviderConnectedProps = Omit<ThemeProviderProps, 'os'>;
 
 /**
  * Full theme context

@@ -48,7 +48,3 @@ export interface ButtonProps
    */
   size?: 'm' | 'l' | 'xl';
 }
-
-export interface ButtonUseStylesProps extends ButtonProps {
-  os: OS;
-}
