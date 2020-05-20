@@ -6,6 +6,10 @@ import {InputTheme} from '../Input';
 import {LinkTheme} from '../Link';
 import {SelectTheme} from '../Select';
 import {SeparatorTheme} from '../Separator';
+import {ViewTransitionTheme} from '../ViewTransition';
+import {PanelTransitionTheme} from '../PanelTransition';
+import {PanelTheme} from '../Panel';
+import {PanelHeaderTheme} from '../PanelHeader';
 
 /**
  * Description of theme
@@ -16,13 +20,18 @@ export interface Theme {
     FormControl: FormControlTheme;
     Input: InputTheme;
     Link: LinkTheme;
+    Panel: PanelTheme;
+    PanelHeader: PanelHeaderTheme;
+    PanelTransition: PanelTransitionTheme;
     Select: SelectTheme;
     Separator: SeparatorTheme;
+    ViewTransition: ViewTransitionTheme;
   };
   global: {
     backgroundColor: string;
     text: {
       fontFamily: string;
+      fontFamilyTT: string;
       colors: {
         primary: string;
         secondary: string;

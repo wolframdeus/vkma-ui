@@ -7,6 +7,9 @@ import {
   linkBrightLightTheme,
   selectBrightLightTheme,
   separatorBrightLightTheme,
+  viewTransitionBrightLightTheme,
+  panelTransitionBrightLightTheme,
+  panelBrightLightTheme, panelHeaderBrightLightTheme,
 } from '../components';
 
 /**
@@ -20,13 +23,18 @@ export const createBrightLightTheme: ThemeCreator = options => ({
     FormControl: formControlBrightLightTheme,
     Input: inputBrightLightTheme,
     Link: linkBrightLightTheme,
+    Panel: panelBrightLightTheme,
+    PanelHeader: panelHeaderBrightLightTheme,
+    PanelTransition: panelTransitionBrightLightTheme,
     Select: selectBrightLightTheme,
     Separator: separatorBrightLightTheme,
+    ViewTransition: viewTransitionBrightLightTheme
   },
   global: {
     backgroundColor: 'white',
     text: {
       fontFamily: getFontFamily(options.os),
+      fontFamilyTT: '"TT Commons", -apple-system, Roboto, Helvetica Neue, Arial',
       colors: {
         primary: 'black',
         secondary: '#818c99',

@@ -21,13 +21,22 @@ npm i vkma-ui
 - Button
 - ConfigProvider
 - DeviceProvider
+- Epic
 - FormControl
+- GlobalStyleSheet
 - Input
 - Link
+- Panel
+- PanelHeader
+- PanelHeaderBack
+- PanelTransition
 - Select
 - Separator
+- Suspender
+- SuspenderTransition
 - ThemeProvider
-- GlobalStyleSheet
+- View
+- ViewTransition
 
 ## Notice for developers
 

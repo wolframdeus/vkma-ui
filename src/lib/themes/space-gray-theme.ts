@@ -7,6 +7,9 @@ import {
   linkSpaceGrayTheme,
   selectSpaceGrayTheme,
   separatorSpaceGrayTheme,
+  viewTransitionSpaceGrayTheme,
+  panelTransitionSpaceGrayTheme,
+  panelSpaceGrayTheme, panelHeaderSpaceGrayTheme,
 } from '../components';
 
 /**
@@ -20,13 +23,18 @@ export const createSpaceGrayTheme: ThemeCreator = options => ({
     FormControl: formControlSpaceGrayTheme,
     Input: inputSpaceGrayTheme,
     Link: linkSpaceGrayTheme,
+    Panel: panelSpaceGrayTheme,
+    PanelHeader: panelHeaderSpaceGrayTheme,
+    PanelTransition: panelTransitionSpaceGrayTheme,
     Select: selectSpaceGrayTheme,
     Separator: separatorSpaceGrayTheme,
+    ViewTransition: viewTransitionSpaceGrayTheme,
   },
   global: {
     backgroundColor: '#19191a',
     text: {
       fontFamily: getFontFamily(options.os),
+      fontFamilyTT: '"TT Commons", -apple-system, Roboto, Helvetica Neue, Arial',
       colors: {
         primary: '#e1e3e6',
         secondary: '#818c99',
