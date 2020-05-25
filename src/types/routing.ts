@@ -63,6 +63,7 @@ export enum PanelsEnum {
   Main = 'main',
   Button = 'button',
   Select = 'select',
+  Separator = 'separator',
   Input = 'input',
 }
 

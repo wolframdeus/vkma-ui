@@ -4,7 +4,7 @@ import {SelectPanel} from './components/SelectPanel';
 import {InputPanel} from './components/InputPanel';
 import {ViewExamplePanel} from './components/ViewExamplePanel';
 
-import {ViewsEnum, PanelsEnum, ViewsTree, PopupsEnum} from './types';
+import {PanelsEnum, PopupsEnum, ViewsEnum, ViewsTree} from './types';
 import {createSet, ValidateTree} from 'vkma-router';
 
 /**
@@ -16,6 +16,7 @@ export const routingTree = {
   views: {
     [ViewsEnum.Presentation]: createSet([
       PanelsEnum.Main, PanelsEnum.Button, PanelsEnum.Select, PanelsEnum.Input,
+      PanelsEnum.Separator,
     ]),
     [ViewsEnum.PresentationViewExample]: createSet([PanelsEnum.Main]),
   },

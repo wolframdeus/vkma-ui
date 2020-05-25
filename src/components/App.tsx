@@ -9,7 +9,8 @@ import {
   createSpaceGrayTheme,
 } from '../lib';
 import {Inner} from './Inner';
-import {NonIndexedHistory, Router} from 'vkma-router';
+import {NonIndexedHistory} from 'vkma-router';
+import {Router} from './Router';
 
 import {PanelsEnum, SchemeType, ThemesMap, ViewsEnum} from '../types';
 import {AppTree, routingTree} from '../trees';

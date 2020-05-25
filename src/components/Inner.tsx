@@ -6,6 +6,7 @@ import {ButtonPanel} from './ButtonPanel';
 import {SelectPanel} from './SelectPanel';
 import {InputPanel} from './InputPanel';
 import {ViewExamplePanel} from './ViewExamplePanel';
+import {SeparatorPanel} from './SeparatorPanel';
 
 import {useRouter} from 'vkma-router';
 import {PanelsEnum, ViewsEnum} from '../types';
@@ -25,6 +26,7 @@ export const Inner = memo(() => {
         <Panel id={PanelsEnum.Button} component={ButtonPanel}/>
         <Panel id={PanelsEnum.Select} component={SelectPanel}/>
         <Panel id={PanelsEnum.Input} component={InputPanel}/>
+        <Panel id={PanelsEnum.Separator} component={SeparatorPanel}/>
       </View>
       <View id={ViewsEnum.PresentationViewExample} activePanel={currentState.panel}>
         <Panel id={PanelsEnum.Main} component={ViewExamplePanel}/>
