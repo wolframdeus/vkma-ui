@@ -1,11 +1,15 @@
-import {ClassicElement} from 'react';
-import {ViewProps} from '../View';
+import {ReactElement} from 'react';
+
+export interface EpicChildProps {
+  id: string;
+  className?: string;
+}
 
 export interface EpicProps {
   /**
    * Array of views
    */
-  children: ClassicElement<ViewProps> | ClassicElement<ViewProps>[];
+  children: ReactElement<EpicChildProps> | ReactElement<EpicChildProps>[];
 
   /**
    * Currently active view
@@ -14,6 +18,7 @@ export interface EpicProps {
 
   /**
    * Should Epic change views with animation
+   * @default true
    */
   animate?: boolean;
 }

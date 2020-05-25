@@ -64,6 +64,9 @@ export interface SuspenderProps {
    */
   animate?: boolean;
 
+  /**
+   * List of children elements
+   */
   children: ReactNode | ReactNodeArray;
 }
 
