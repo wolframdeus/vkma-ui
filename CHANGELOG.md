@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/wolframdeus/vkma-ui/compare/v1.4.1...v1.4.2) (2020-05-27)
+
+
+### Bug Fixes
+
+* **getinsets:** added getInsets notification ([f9e0f10](https://github.com/wolframdeus/vkma-ui/commit/f9e0f10d724358e8295d1806d1096935d5f20728))
+
 ### [1.4.1](https://github.com/wolframdeus/vkma-ui/compare/v1.4.0...v1.4.1) (2020-05-27)
 
 
