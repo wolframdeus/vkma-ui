@@ -17,7 +17,9 @@ export const DeviceProvider = memo(
     } = props;
 
     const os = useMemo(() => {
-      return parentOS || getOS(window.navigator.userAgent);
+      return typeof parentOS === 'undefined'
+        ? getOS(window.navigator.userAgent)
+        : parentOS;
     }, [parentOS]);
 
     const insets = useMemo(() => {

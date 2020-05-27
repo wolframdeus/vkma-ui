@@ -1,5 +1,5 @@
 import {ComponentType} from 'react';
-import {SuspendablePublicProps, ViewProps, PanelProps} from '../lib';
+import {MountableProps, ViewProps, PanelProps} from '../lib';
 import {IdType} from 'vkma-router';
 
 /**
@@ -12,7 +12,7 @@ type Tree<T> = {
 /**
  * Panel in a tree
  */
-interface TreePanel extends SuspendablePublicProps {
+interface TreePanel extends MountableProps {
   /**
    * Component which will be used instead of default "Panel"
    */
@@ -30,7 +30,7 @@ interface TreePanel extends SuspendablePublicProps {
 /**
  * View in a tree
  */
-export interface TreeView extends SuspendablePublicProps {
+export interface TreeView extends MountableProps {
   /**
    * Component which will be used instead of default "View"
    */
@@ -60,11 +60,12 @@ export enum ViewsEnum {
  * non-existing panel
  */
 export enum PanelsEnum {
-  Main = 'main',
   Button = 'button',
+  Input = 'input',
+  Main = 'main',
+  Popups = 'popups',
   Select = 'select',
   Separator = 'separator',
-  Input = 'input',
 }
 
 /**
@@ -72,4 +73,5 @@ export enum PanelsEnum {
  * non-existing popup
  */
 export enum PopupsEnum {
+  Main = 'main',
 }

@@ -2,9 +2,9 @@ import React, {memo, useMemo, useState} from 'react';
 
 import {
   GlobalStyleSheet,
-  DeviceProvider,
   ConfigProvider,
   ThemeProviderConnected,
+  PopupRoot,
   createBrightLightTheme,
   createSpaceGrayTheme,
 } from '../lib';
@@ -14,6 +14,7 @@ import {Router} from './Router';
 
 import {PanelsEnum, SchemeType, ThemesMap, ViewsEnum} from '../types';
 import {AppTree, routingTree} from '../trees';
+import {OSProvider} from './OSProvider';
 
 export const App = memo(() => {
   const [scheme] = useState<SchemeType>('bright_light');
@@ -38,13 +39,15 @@ export const App = memo(() => {
   return (
     <Router initialHistory={initialHistory} tree={routingTree}>
       <ConfigProvider automaticUpdate={true}>
-        <DeviceProvider automaticUpdate={true}>
+        <OSProvider automaticUpdate={true}>
           <ThemeProviderConnected theme={theme}>
             <GlobalStyleSheet>
-              <Inner/>
+              <PopupRoot>
+                <Inner/>
+              </PopupRoot>
             </GlobalStyleSheet>
           </ThemeProviderConnected>
-        </DeviceProvider>
+        </OSProvider>
       </ConfigProvider>
     </Router>
   );

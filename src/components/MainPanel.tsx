@@ -72,6 +72,11 @@ export const MainPanel = memo(function MainPanel() {
           >
             <Link className={mc.link}>Separator</Link>
           </RouterLink>
+          {/*<RouterLink*/}
+          {/*  to={{view: ViewsEnum.Presentation, panel: PanelsEnum.Popups}}*/}
+          {/*>*/}
+          {/*  <Link className={mc.link}>Popups</Link>*/}
+          {/*</RouterLink>*/}
         </SectionItem>
       </div>
     </>

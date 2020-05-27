@@ -1,9 +1,9 @@
-import {SuspendableComponentProps} from '../Suspender';
+import {MountableComponentProps} from '../MountHistory';
 import {ComponentType, HTMLAttributes} from 'react';
 
 export interface PanelProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'id' | 'children'>,
-    SuspendableComponentProps {
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>,
+    MountableComponentProps {
   /**
    * Does panel contains header
    */
@@ -12,13 +12,6 @@ export interface PanelProps
    * Component which should be rendered inside panel
    */
   component?: ComponentType;
-}
-
-export interface PanelContext {
-  /**
-   * Placeholder for header
-   */
-  headerContainer: HTMLDivElement | null;
 }
 
 export interface UsePanelStyles extends PanelProps {

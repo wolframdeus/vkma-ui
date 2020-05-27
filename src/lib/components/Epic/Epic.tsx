@@ -1,19 +1,20 @@
-import React, {Children, memo} from 'react';
+import React, {memo} from 'react';
 
-import {Suspender} from '../Suspender';
-import {ViewTransition} from '../ViewTransition';
+import {MountHistory} from '../MountHistory';
+import {EpicInner} from './EpicInner';
+
+import {epicMountHistoryContext} from './context';
 
 import {EpicProps} from './types';
 
 export const Epic = memo(function Epic(props: EpicProps) {
-  const {children, activeView, animate = true} = props;
-  const childrenArr = Children.map(children, c => (
-    <ViewTransition id={c.props.id}>{c}</ViewTransition>
-  ));
+  const {activeView, children, ...rest} = props;
 
   return (
-    <Suspender activeElement={activeView} animate={animate}>
-      {childrenArr}
-    </Suspender>
+    <MountHistory activeElement={activeView} context={epicMountHistoryContext}>
+      <EpicInner {...rest}>
+        {children}
+      </EpicInner>
+    </MountHistory>
   );
 });

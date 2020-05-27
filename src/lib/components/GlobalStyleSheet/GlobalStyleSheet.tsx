@@ -26,6 +26,9 @@ const useStyles = makeStyles<Theme, UseGlobalStyleSheetStyles>((theme: Theme) =>
         overflowY: ({isBodyOverflowHidden}) => isBodyOverflowHidden
           ? 'hidden'
           : 'auto',
+        pointerEvents: ({isPointerEventsBlocked}) => isPointerEventsBlocked
+          ? 'none'
+          : 'all',
         color: text.colors.primary,
         backgroundColor,
         fontFamily: theme.global.text.fontFamily,
@@ -55,31 +58,48 @@ export const GlobalStyleSheet = memo(
     const {children} = props;
     const [requestOverflowElements, setRequestOverflowElements] =
       useState<symbol[]>([]);
+    const [
+      requestRestrictPointerEventsElements,
+      setRequestRestrictPointerEventsElements,
+    ] = useState<symbol[]>([]);
 
-    const requestOverflowHide = useCallback((elem: symbol) => {
-      setRequestOverflowElements(elements => {
-        if (elements.includes(elem)) {
-          return elements;
-        }
-        return [...elements, elem];
-      });
+    const appendItem = useCallback((arr: symbol[], item: symbol) => {
+      return arr.includes(item) ? arr : [...arr, item];
+    }, []);
+    const spliceItem = useCallback((arr: symbol[], item: symbol) => {
+      return arr.includes(item)
+        ? arr.filter(i => i !== item)
+        : arr;
     }, []);
 
-    const releaseOverflowHide = useCallback((elem: symbol) => {
-      setRequestOverflowElements(elements => {
-        if (elements.includes(elem)) {
-          return elements;
-        }
-        return [...elements, elem];
-      });
-    }, []);
+    const requestOverflowHide = useCallback((item: symbol) => {
+      setRequestOverflowElements(arr => appendItem(arr, item));
+    }, [appendItem]);
+
+    const releaseOverflowHide = useCallback((item: symbol) => {
+      setRequestOverflowElements(arr => spliceItem(arr, item));
+    }, [spliceItem]);
+
+    const requestRestrictPointerEvents = useCallback((item: symbol) => {
+      setRequestRestrictPointerEventsElements(arr => appendItem(arr, item));
+    }, [appendItem]);
+
+    const releaseRestrictPointerEvents = useCallback((item: symbol) => {
+      setRequestRestrictPointerEventsElements(arr => spliceItem(arr, item));
+    }, [spliceItem]);
 
     const context = useMemo<GlobalStyleSheetContext>(() => ({
-      requestOverflowHide,
-      releaseOverflowHide,
-    }), [requestOverflowHide, releaseOverflowHide]);
+      requestOverflowHide, releaseOverflowHide, requestRestrictPointerEvents,
+      releaseRestrictPointerEvents,
+    }), [
+      requestOverflowHide, releaseOverflowHide, requestRestrictPointerEvents,
+      releaseRestrictPointerEvents,
+    ]);
 
-    useStyles({isBodyOverflowHidden: requestOverflowElements.length > 0});
+    useStyles({
+      isBodyOverflowHidden: requestOverflowElements.length > 0,
+      isPointerEventsBlocked: requestRestrictPointerEventsElements.length > 0,
+    });
 
     return <Provider value={context}>{children}</Provider>;
   },

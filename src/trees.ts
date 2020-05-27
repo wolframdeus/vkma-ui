@@ -16,7 +16,7 @@ export const routingTree = {
   views: {
     [ViewsEnum.Presentation]: createSet([
       PanelsEnum.Main, PanelsEnum.Button, PanelsEnum.Select, PanelsEnum.Input,
-      PanelsEnum.Separator,
+      PanelsEnum.Separator, PanelsEnum.Popups
     ]),
     [ViewsEnum.PresentationViewExample]: createSet([PanelsEnum.Main]),
   },

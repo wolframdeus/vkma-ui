@@ -6,6 +6,7 @@ export interface GlobalStyleSheetProps {
 
 export interface UseGlobalStyleSheetStyles extends GlobalStyleSheetProps {
   isBodyOverflowHidden: boolean;
+  isPointerEventsBlocked: boolean;
 }
 
 export interface GlobalStyleSheetContext {
@@ -20,4 +21,17 @@ export interface GlobalStyleSheetContext {
    * @param {symbol} elem
    */
   releaseOverflowHide(elem: symbol): void;
+
+  /**
+   * Adds element to list of elements, which want to restrict all pointer events
+   * @param {symbol} elem
+   */
+  requestRestrictPointerEvents(elem: symbol): void;
+
+  /**
+   * Removes element from list of elements, which want to restrict all pointer
+   * events
+   * @param {symbol} elem
+   */
+  releaseRestrictPointerEvents(elem: symbol): void;
 }

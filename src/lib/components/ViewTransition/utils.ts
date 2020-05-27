@@ -7,9 +7,12 @@ import {
 
 import {CreateCSSProperties} from '@material-ui/styles';
 import {OS} from '../../types';
-import {SuspendTransitionType} from '../Suspender';
 import {Theme} from '../ThemeProvider';
-import {CreateTransitionPhaseGenerator, SuspendTransitionStartPhaseType} from '../SuspenderTransition';
+import {
+  TransitionPhaseGenerator,
+  MountTransitionStartPhaseType,
+  MountTransitionType,
+} from '../MountTransition';
 
 /**
  * Returns base transition CSS-properties for IOS
@@ -20,8 +23,8 @@ import {CreateTransitionPhaseGenerator, SuspendTransitionStartPhaseType} from '.
  */
 function getIOSTransitionBaseCSS(
   theme: Theme,
-  transitionType: SuspendTransitionType,
-  phase: SuspendTransitionStartPhaseType,
+  transitionType: MountTransitionType,
+  phase: MountTransitionStartPhaseType,
 ): CreateCSSProperties {
   const isEnter = phase === 'enter';
   const isMain = transitionType === 'main';
@@ -70,8 +73,8 @@ function getIOSTransitionBaseCSS(
  */
 function getAndroidTransitionBaseCSS(
   theme: Theme,
-  transitionType: SuspendTransitionType,
-  phase: SuspendTransitionStartPhaseType,
+  transitionType: MountTransitionType,
+  phase: MountTransitionStartPhaseType,
 ): CreateCSSProperties {
   const isEnter = phase === 'enter';
   const isMain = transitionType === 'main';
@@ -102,32 +105,25 @@ function getAndroidTransitionBaseCSS(
 /**
  * Creates handler which returns base transition CSS-properties
  * @param {Theme} theme
- * @param {SuspendTransitionStartPhaseType} phase
+ * @param {MountTransitionStartPhaseType} phase
  * @returns {(options: T) => CreateCSSProperties<{}>}
  */
-export const createViewStartPhaseTransitionGenerator: CreateTransitionPhaseGenerator =
-  (theme, phase) => {
-    return options => {
-      const {os, transitionType} = options;
-
-      if (os === OS.IOS) {
-        return getIOSTransitionBaseCSS(theme, transitionType, phase);
-      }
-      return getAndroidTransitionBaseCSS(theme, transitionType, phase);
-    };
-  };
+export const createViewStartPhaseTransitionGenerator: TransitionPhaseGenerator =
+  (theme, phase) => ({os, transitionType}) => os === OS.IOS
+    ? getIOSTransitionBaseCSS(theme, transitionType, phase)
+    : getAndroidTransitionBaseCSS(theme, transitionType, phase);
 
 /**
  * Returns CSS for active phase of IOS transition
  * @param {Theme} theme
- * @param {SuspendTransitionType} transitionType
+ * @param {MountTransitionType} transitionType
  * @param {"enter" | "exit"} phase
  * @returns {CreateCSSProperties}
  */
 function getIOSTransitionActivePhaseCSS(
   theme: Theme,
-  transitionType: SuspendTransitionType,
-  phase: SuspendTransitionStartPhaseType,
+  transitionType: MountTransitionType,
+  phase: MountTransitionStartPhaseType,
 ): CreateCSSProperties {
   const isEnter = phase === 'enter';
   const isMain = transitionType === 'main';
@@ -150,14 +146,14 @@ function getIOSTransitionActivePhaseCSS(
 /**
  * Returns CSS for active phase of Android transition
  * @param {Theme} theme
- * @param {SuspendTransitionType} transitionType
+ * @param {MountTransitionType} transitionType
  * @param {"enter" | "exit"} phase
  * @returns {CreateCSSProperties}
  */
 function getAndroidTransitionActivePhaseCSS(
   theme: Theme,
-  transitionType: SuspendTransitionType,
-  phase: SuspendTransitionStartPhaseType,
+  transitionType: MountTransitionType,
+  phase: MountTransitionStartPhaseType,
 ): CreateCSSProperties {
   const isEnter = phase === 'enter';
   const isMain = transitionType === 'main';
@@ -179,17 +175,10 @@ function getAndroidTransitionActivePhaseCSS(
 /**
  * Creates handler which returns CSS for active phase of transition
  * @param {Theme} theme
- * @param {SuspendTransitionStartPhaseType} phase
+ * @param {MountTransitionStartPhaseType} phase
  * @returns {(options: T) => CreateCSSProperties<{}>}
  */
-export const createViewActivePhaseTransitionGenerator: CreateTransitionPhaseGenerator =
-  (theme, phase) => {
-    return options => {
-      const {os, transitionType} = options;
-
-      if (os === OS.IOS) {
-        return getIOSTransitionActivePhaseCSS(theme, transitionType, phase);
-      }
-      return getAndroidTransitionActivePhaseCSS(theme, transitionType, phase);
-    };
-  };
+export const createViewActivePhaseTransitionGenerator: TransitionPhaseGenerator =
+  (theme, phase) => ({os, transitionType}) => os === OS.IOS
+    ? getIOSTransitionActivePhaseCSS(theme, transitionType, phase)
+    : getAndroidTransitionActivePhaseCSS(theme, transitionType, phase);

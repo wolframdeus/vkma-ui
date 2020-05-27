@@ -1,7 +1,7 @@
 import {ReactElement} from 'react';
+import {MountableComponentProps} from '../MountHistory';
 
-export interface EpicChildProps {
-  id: string;
+export interface EpicChildProps extends MountableComponentProps {
   className?: string;
 }
 
@@ -21,4 +21,7 @@ export interface EpicProps {
    * @default true
    */
   animate?: boolean;
+}
+
+export interface EpicInnerProps extends Omit<EpicProps, 'activeView'> {
 }

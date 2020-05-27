@@ -75,7 +75,7 @@ export const Panel = memo(function PanelInner(props: PanelProps) {
   );
 
   return (
-    <div className={rootClassName} data-id={id} {...rest}>
+    <div className={rootClassName} {...rest}>
       <div className={mc.content}>
         <Separator/>
         {content}
