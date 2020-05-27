@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/wolframdeus/vkma-ui/compare/v1.3.0...v1.4.0) (2020-05-27)
+
+
+### Features
+
+* big update ([1bc14dc](https://github.com/wolframdeus/vkma-ui/commit/1bc14dc6a7f7799864550d39cbc22d4457092930))
+
+
+### Bug Fixes
+
+* **panel and view:** moved away transitions from Panel and View comp ([69c806e](https://github.com/wolframdeus/vkma-ui/commit/69c806ee29fe9185e16405d07229faa8b25d8cbc))
+* **separator example:** added example for separator ([cfe5a81](https://github.com/wolframdeus/vkma-ui/commit/cfe5a8136db44bb9e480c2c32c06de6d86a1ed59))
+
 ## [1.3.0](https://github.com/wolframdeus/vkma-ui/compare/v1.2.0...v1.3.0) (2020-05-20)
 
 
