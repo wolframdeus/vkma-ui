@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/wolframdeus/vkma-ui/compare/v1.4.0...v1.4.1) (2020-05-27)
+
+
+### Bug Fixes
+
+* **material-ui:** moved material-ui styles to peer deps ([b9e4f8d](https://github.com/wolframdeus/vkma-ui/commit/b9e4f8de677fcd6673697e5e0225a9fa8b202245))
+
 ## [1.4.0](https://github.com/wolframdeus/vkma-ui/compare/v1.3.0...v1.4.0) (2020-05-27)
 
 
